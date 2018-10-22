@@ -12,7 +12,7 @@ import {json as requestJson} from 'd3-request';
 export default class App extends Component {
   state = {
     mapStyle: defaultMapStyle,
-    year: 1954,
+    year: 2018,
     data: null,
     hoveredFeature: null,
     viewport: {

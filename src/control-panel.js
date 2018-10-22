@@ -9,7 +9,7 @@ export default class ControlPanel extends PureComponent {
 
     return (
       <Container>
-        <div className="title">Disasters That Occurred In <div class="title year">{settings.year}</div></div>
+        <div className="title">Disasters That Occurred In <div className="title year">{settings.year}</div></div>
         <p>Map showing disasters by state. Hover the state to see details.</p>
 
         <div>Data source:
