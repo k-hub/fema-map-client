@@ -16,23 +16,40 @@ export default class App extends Component {
     data: null,
     hoveredFeature: null,
     viewport: {
-      latitude: 40,
-      longitude: -100,
+      latitude: 50,
+      longitude: -110,
       zoom: 3,
       bearing: 0,
       pitch: 0,
-      width: 1000,
-      height: 1000
+      width: 100,
+      height: 100
     }
   };
 
   componentDidMount() {
+    window.addEventListener('resize', this._resize);
+    this._resize();
+
     requestJson('/us_fema.geojson', (error, response) => {
       if (!error) {
         this._loadData(response);
       }
     });
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._resize);
+  }
+
+  _resize = () => {
+    this.setState({
+      viewport: {
+        ...this.state.viewport,
+        width: this.props.width || window.innerWidth,
+        height: this.props.height || window.innerHeight
+      }
+    });
+  };
 
   _loadData = data => {
     updateDisasterYear(data, this.state.year);

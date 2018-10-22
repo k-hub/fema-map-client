@@ -9,6 +9,15 @@ export default class ControlPanel extends PureComponent {
 
     return (
       <Container>
+        <div className="title">Disasters That Occurred In <div class="title year">{settings.year}</div></div>
+        <p>Map showing disasters by state. Hover the state to see details.</p>
+
+        <div>Data source:
+          <a href="https://www.fema.gov/media-library/assets/documents/28318"
+            target="_blank"
+            rel="noopener noreferrer"> FEMA Disaster Declarations</a>
+        </div>
+
         <div className="input">
           <label>Year</label>
           <input type="range" value={settings.year}

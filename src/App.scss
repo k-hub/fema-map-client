@@ -1,6 +1,54 @@
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:active {
+    color: #00000091;
+}
+
 .tooltip {
     position: absolute;
     padding: 5px;
     font-size: 12px;
     background-color: white;
+}
+
+.control-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 315px;
+    margin: 15px;
+    padding: 10px 35px;
+    box-shadow: 0 0 4px rgba(0,0,0,.15);
+    background-color: white;
+
+    .title {
+        margin: 10px 0;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .year {
+        display: inline-block;
+        width: 48px;
+    }
+
+    .input {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0px 25px 0;
+    }
+
+    label {
+        text-transform: uppercase;
+    }
+
+    input {
+        width: 80%;
+    }
+
+    p {
+        line-height: 22px;
+    }
 }
