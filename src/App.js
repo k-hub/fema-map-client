@@ -12,8 +12,9 @@ import {json as requestJson} from 'd3-request';
 export default class App extends Component {
   state = {
     mapStyle: defaultMapStyle,
-    data: null,
     year: 1954,
+    data: null,
+    hoveredFeature: null,
     viewport: {
       latitude: 40,
       longitude: -100,
@@ -62,6 +63,29 @@ export default class App extends Component {
     this.setState({viewport});
   };
 
+  _onHover = event => {
+    const {features, srcEvent: {offsetX, offsetY}} = event;
+    const hoveredFeature = features && features.find(f => f.layer.id === 'data');
+
+    this.setState({hoveredFeature, x: offsetX, y: offsetY});
+  };
+
+  _renderTooltip() {
+    const {hoveredFeature, year, x, y} = this.state;
+
+    return hoveredFeature && (
+      <div className="tooltip" style={{left: x + 10, top: y + 10}}>
+        <div>State: {hoveredFeature.properties.state}</div>
+        <div>Disaster: {hoveredFeature.properties.disaster !== 'null' ?
+          hoveredFeature.properties.disaster : 'N/A'}
+        </div>
+        <div>Number of reported incidences: {hoveredFeature.properties.num_incidences !== 'null' ?
+          hoveredFeature.properties.num_incidences : 'N/A'}
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const {viewport, mapStyle} = this.state;
 
@@ -72,7 +96,10 @@ export default class App extends Component {
           mapStyle={mapStyle}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
           onViewportChange={this._onViewportChange}
-        />
+          onHover={this._onHover}>
+
+          {this._renderTooltip()}
+        </ReactMapGL>
 
         <ControlPanel containerComponent={this.props.containerComponent}
           settings={this.state} onChange={this._updateSettings}

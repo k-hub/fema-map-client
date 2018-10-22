@@ -34,40 +34,8 @@ export const dataLayer = fromJS({
         [21, '#F8C087']
       ]
     },
-    'fill-opacity': 0.8
+    'fill-opacity': 0.6
   }
 });
-//         [0, '#3288bd'],
-//         [1, '#66c2a5'],
-//         [2, '#abdda4'],
-//         [3, '#e6f598'],
-//         [4, '#ffffbf'],
-//         [5, '#fee08b'],
-//         [6, '#fdae61'],
-//         [7, '#f46d43'],
-//         [8, '#d53e4f']
-//
-// ['Chemical', '#3288bd'],
-// ['Coastal Storm', '#66c2a5'],
-// ['Dam/Levee Break', '#abdda4'],
-// ['Drought', '#e6f598'],
-// ['Earthquake', '#ffffbf'],
-// ['Fire', '#fee08b'],
-// ['Fishing Losses', '#fdae61'],
-// ['Flood', '#f46d43'],
-// ['Freezing', '#d53e4f'],
-// ['Human Cause', '#9a7bef'],
-// ['Hurricane', '#b8fff5'],
-// ['Mud/Landslide', '#fcdccf'],
-// ['Other', '#ea76d3'],
-// ['Severe Ice Storm', '#4f4af7'],
-// ['Severe Storm(s)', '#adbddc'],
-// ['Snow', '#8424d6'],
-// ['Terrorist', '#3d693a'],
-// ['Tornado', '#eff637'],
-// ['Toxic Substances', '#fdc9fc'],
-// ['Tsunami', '#41f4f6'],
-// ['Typhoon', '#4188f6'],
-// ['Volcano', '#cc385c']
 
 export const defaultMapStyle = fromJS(MAP_STYLE);
