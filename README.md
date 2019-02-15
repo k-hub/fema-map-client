@@ -8,6 +8,8 @@ Use the slider found in the upper right hand corner to select the year. Hover ov
 ##### Client Side
 - React
 - react-map-gl
+- SCSS
+- HTML
 ##### Database
 - PostgreSQL
 
