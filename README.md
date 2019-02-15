@@ -10,3 +10,6 @@ Use the slider found in the upper right hand corner to select the year. Hover ov
 - react-map-gl
 ##### Database
 - PostgreSQL
+
+## Notes
+A database was used to generate the geojson. This app is completely FE.
